@@ -12,10 +12,10 @@ const App = () => (
     <BrowserRouter>
       <div className={styles.wrapper}>
         <Switch>
-          <Route path="/album">
+          <Route path="/album/:id">
             <PhotoAlbum />
           </Route>
-          <Route path="/photo">
+          <Route path="/photo/:id">
             <PhotoItem />
           </Route>
           <Route path="/">

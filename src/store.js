@@ -3,11 +3,11 @@ import { createStore } from 'redux';
 const reducer = (state, action) => {
   switch (action.type) {
     case 'type1':
-      return;
+      return {};
     case 'type2':
-      return;
+      return {};
     case 'type3':
-      return;
+      return {};
     default:
       return state;
   }
