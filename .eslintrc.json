@@ -11,7 +11,7 @@
     "jsx-a11y/href-no-hash": ["off"],
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
 
-    "indent": ["error", 2],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "camelcase": [
       "error",
       { "properties": "never", "ignoreDestructuring": true }
