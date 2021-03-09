@@ -13,7 +13,9 @@ const reducer = (state, action) => {
   }
 };
 
-const initialState = {};
+const initialState = {
+  photos: []
+};
 const store = createStore(reducer, initialState);
 
 export default store;

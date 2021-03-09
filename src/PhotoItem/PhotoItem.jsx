@@ -28,7 +28,7 @@ const PhotoItem = () => {
           <img src={photo.url} alt={photo.title} />
         </div>
         <div className={styles.info}>
-          <h3 className={styles.title}>{photo.title}</h3>
+          <h3 className={styles.title}>Title: {photo.title}</h3>
           <p>
             Album:{' '}
             <Link to={`/album/${photo.album.id}`}>{photo.album.title}</Link>

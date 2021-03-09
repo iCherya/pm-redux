@@ -11,6 +11,11 @@
   border-bottom: 1px dashed #c6c6c6;
 }
 
+.title {
+  margin: 1em 0;
+  text-align: center;
+}
+
 .content {
   display: flex;
   gap: 1em;
@@ -43,7 +48,7 @@
 
 .button {
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 2em;
   padding: 0.6em 1.2em;
   border: 1px dashed #3d4650;
   border-radius: 10px;
