@@ -1,4 +1,3 @@
-/* eslint-disable import/no-named-as-default */
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import photosReducer from '../ducks/photos';

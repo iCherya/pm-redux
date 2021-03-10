@@ -1,0 +1,24 @@
+.content {
+  display: flex;
+  gap: 1em;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 2em 0;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 150px;
+}
+
+.item img {
+  border-radius: 10px;
+  box-shadow: 0 5px 10px 2px rgba(34, 60, 80, 0.2);
+  transition: all 0.2s linear;
+}
+
+.item img:hover {
+  transform: scale(1.05);
+}

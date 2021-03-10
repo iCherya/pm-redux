@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
 import styles from './App.module.css';
 import Homepage from '../Homepage/Homepage';
 import PhotoAlbum from '../PhotoAlbum/PhotoAlbum';
