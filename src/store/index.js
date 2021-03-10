@@ -1,9 +1,13 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import photosReducer from '../ducks/photos';
+import photosListReducer from '../ducks/photosList';
+import photoSingleReducer from '../ducks/photoSingle';
+import albumInfoReducer from '../ducks/albumInfo';
 
 const rootReducer = combineReducers({
-  photos: photosReducer
+  photosList: photosListReducer,
+  photoSingle: photoSingleReducer,
+  albumInfo: albumInfoReducer
 });
 
 const composeEnhancers =

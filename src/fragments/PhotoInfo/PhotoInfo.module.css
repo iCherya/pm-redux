@@ -1,0 +1,11 @@
+.wrapper {
+  margin: 1em;
+}
+
+.wrapper li {
+  margin-bottom: 0.5em;
+}
+
+.wrapper li span {
+  font-weight: bold;
+}

@@ -1,16 +1,26 @@
 const REQUESTED = 'redux/photos_list/requested';
 const RECEIVED = 'redux/photos_list/received';
+const CLEAR_STORAGE = 'redux/photos_list/clear_storage';
 
 const requested = () => ({
   type: REQUESTED
 });
 
-const received = (data) => ({
+const received = (data, albumId) => ({
   type: RECEIVED,
   payload: {
-    data
+    data,
+    albumId
   }
 });
+
+const clearStorage = () => ({
+  type: CLEAR_STORAGE
+});
+
+export const deletePhotos = () => (dispatch) => {
+  dispatch(clearStorage());
+};
 
 export const addPhotos = (albumId, start, limit = 6) => (dispatch) => {
   dispatch(requested());
@@ -20,26 +30,31 @@ export const addPhotos = (albumId, start, limit = 6) => (dispatch) => {
 
   fetch(fetchUrl)
     .then((response) => response.json())
-    .then((data) => dispatch(received(data)));
+    .then((data) => dispatch(received(data, albumId)));
 };
 
 const initialState = {
+  albumId: null,
   isLoading: false,
   data: []
 };
 
-const photosReducer = (state = initialState, action) => {
+const photosListReducer = (state = initialState, action) => {
   switch (action.type) {
     case REQUESTED:
       return { ...state, isLoading: true };
     case RECEIVED:
       return {
         isLoading: false,
+        albumId: action.payload.albumId,
         data: [...state.data, ...action.payload.data]
       };
+    case CLEAR_STORAGE: {
+      return { ...state, data: [], albumId: null };
+    }
     default:
       return state;
   }
 };
 
-export default photosReducer;
+export default photosListReducer;
