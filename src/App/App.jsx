@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import styles from './App.module.css';
-import Homepage from '../components/Homepage/Homepage';
 import PhotoAlbum from '../components/PhotoAlbum/PhotoAlbum';
 import PhotoItem from '../components/PhotoItem/PhotoItem';
 import NotFound from '../components/NotFound/NotFound';
@@ -18,7 +17,7 @@ const App = () => (
           <PhotoItem />
         </Route>
         <Route exact path="/">
-          <Homepage />
+          <PhotoAlbum />
         </Route>
         <Route path="/">
           <NotFound />

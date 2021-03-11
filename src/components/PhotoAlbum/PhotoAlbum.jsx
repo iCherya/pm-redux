@@ -19,16 +19,16 @@ const PhotoAlbum = () => {
 
   useEffect(() => {
     dispatch(addPhotos(albumId, photos.length));
-    dispatch(loadAlbum(albumId));
+    if (albumId) dispatch(loadAlbum(albumId));
   }, []);
 
   useEffect(() => () => dispatch(deletePhotos()), []);
 
   return (
     <div>
-      <Heading text="Album page" />
-      {isLoading ? (
-        <div>Loading...</div>
+      <Heading text={albumId ? 'Album page' : 'Photos'} />
+      {!albumId || isLoading ? (
+        ''
       ) : (
         <UserInfo
           userName={album.userName}
