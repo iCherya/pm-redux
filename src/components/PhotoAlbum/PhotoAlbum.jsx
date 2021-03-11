@@ -25,19 +25,25 @@ const PhotoAlbum = () => {
 
   useEffect(() => () => dispatch(deletePhotos()), []);
 
-  if (isLoading) {
-    return <div className="">Loading...</div>;
-  }
-
   return (
     <div>
-      <Heading text="ALBUM page" />
-      <UserInfo name={album.user.name} email={album.user.email} />
-      <List photos={photos} />
-      <Button
-        text="Add more..."
-        actionOnClick={() => dispatch(addPhotos(albumId, photos.length))}
-      />
+      <Heading text="Album page" />
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <>
+          <UserInfo
+            name={album.user.name}
+            email={album.user.email}
+            albumTitle={album.title}
+          />
+          <List photos={photos} />
+          <Button
+            text="Add more..."
+            actionOnClick={() => dispatch(addPhotos(albumId, photos.length))}
+          />
+        </>
+      )}
     </div>
   );
 };

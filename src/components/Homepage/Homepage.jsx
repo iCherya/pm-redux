@@ -5,7 +5,6 @@ import { addPhotos, deletePhotos } from '../../ducks/photosList';
 import Heading from '../../fragments/Heading/Heading';
 import List from '../../fragments/List/List';
 import Button from '../../fragments/Button/Button';
-// import UserInfo from '../fragments/UserInfo/UserInfo';
 
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -21,7 +20,6 @@ const Homepage = () => {
   return (
     <div>
       <Heading text="Photos" />
-      {/* {albumId && <UserInfo name={album.user.name} email={album.user.email} />} */}
       <List photos={photos} />
       <Button
         text="Add more..."

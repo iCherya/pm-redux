@@ -5,6 +5,7 @@ import styles from './App.module.css';
 import Homepage from '../components/Homepage/Homepage';
 import PhotoAlbum from '../components/PhotoAlbum/PhotoAlbum';
 import PhotoItem from '../components/PhotoItem/PhotoItem';
+import NotFound from '../components/NotFound/NotFound';
 
 const App = () => (
   <BrowserRouter>
@@ -16,8 +17,11 @@ const App = () => (
         <Route path="/photo/:id">
           <PhotoItem />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <Homepage />
+        </Route>
+        <Route path="/">
+          <NotFound />
         </Route>
       </Switch>
     </div>
