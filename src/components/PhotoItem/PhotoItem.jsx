@@ -12,7 +12,9 @@ const PhotoItem = () => {
   const { id: photoId } = useParams();
 
   const dispatch = useDispatch();
-  const photo = useSelector((state) => state.photoSingle.data);
+  const { photoUrl, photoTitle, albumId, albumTitle } = useSelector(
+    (state) => state.photoSingle.data
+  );
   const isLoading = useSelector((state) => state.photoSingle.isLoading);
 
   useEffect(() => {
@@ -26,11 +28,11 @@ const PhotoItem = () => {
         <div>Loading...</div>
       ) : (
         <div className={styles.wrapper}>
-          <Photo url={photo.url} title={photo.title} />
+          <Photo url={photoUrl} title={photoTitle} />
           <PhotoInfo
-            title={photo.title}
-            albumId={photo.album.id}
-            albumTitle={photo.album.title}
+            title={photoTitle}
+            albumId={albumId}
+            albumTitle={albumTitle}
           />
         </div>
       )}

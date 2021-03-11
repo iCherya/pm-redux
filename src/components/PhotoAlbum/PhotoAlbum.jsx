@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -31,19 +30,17 @@ const PhotoAlbum = () => {
       {isLoading ? (
         <div>Loading...</div>
       ) : (
-        <>
-          <UserInfo
-            name={album.user.name}
-            email={album.user.email}
-            albumTitle={album.title}
-          />
-          <List photos={photos} />
-          <Button
-            text="Add more..."
-            actionOnClick={() => dispatch(addPhotos(albumId, photos.length))}
-          />
-        </>
+        <UserInfo
+          userName={album.userName}
+          userEmail={album.userEmail}
+          albumTitle={album.albumTitle}
+        />
       )}
+      <List photos={photos} />
+      <Button
+        text="Add more..."
+        actionOnClick={() => dispatch(addPhotos(albumId, photos.length))}
+      />
     </div>
   );
 };

@@ -17,7 +17,13 @@ export const loadPhoto = (photoId) => (dispatch) => {
 
   fetch(`https://jsonplaceholder.typicode.com/photos/${photoId}?_expand=album`)
     .then((response) => response.json())
-    .then((data) => dispatch(received(data)));
+    .then((data) => {
+      const { url: photoUrl, title: photoTitle, album } = data;
+      const { id: albumId, title: albumTitle } = album;
+      const usefulData = { photoUrl, photoTitle, albumId, albumTitle };
+
+      dispatch(received(usefulData));
+    });
 };
 
 const initialState = {

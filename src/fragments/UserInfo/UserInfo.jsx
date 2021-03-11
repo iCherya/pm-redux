@@ -3,13 +3,13 @@ import { PropTypes } from 'prop-types';
 
 import styles from './UserInfo.module.css';
 
-const UserInfo = ({ name, email, albumTitle }) => (
+const UserInfo = ({ userName, userEmail, albumTitle }) => (
   <>
     <h3 className={styles.album}>Album: {albumTitle}</h3>
     <p className={styles.user}>
-      {name} -{' '}
-      <a href={`mailto:${email}`} target="_blank" rel="noreferrer">
-        {email}
+      {userName} -{' '}
+      <a href={`mailto:${userEmail}`} target="_blank" rel="noreferrer">
+        {userEmail}
       </a>
     </p>
   </>
@@ -17,8 +17,8 @@ const UserInfo = ({ name, email, albumTitle }) => (
 
 UserInfo.propTypes = {
   albumTitle: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired
+  userName: PropTypes.string.isRequired,
+  userEmail: PropTypes.string.isRequired
 };
 
 export default UserInfo;

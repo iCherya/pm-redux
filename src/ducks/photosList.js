@@ -30,7 +30,15 @@ export const addPhotos = (albumId, start, limit = 6) => (dispatch) => {
 
   fetch(fetchUrl)
     .then((response) => response.json())
-    .then((data) => dispatch(received(data, albumId)));
+    .then((data) => {
+      const usefulData = data.map(({ id, thumbnailUrl, title }) => ({
+        id,
+        thumbnailUrl,
+        title
+      }));
+
+      dispatch(received(usefulData, albumId));
+    });
 };
 
 const initialState = {

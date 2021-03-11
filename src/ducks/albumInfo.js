@@ -17,7 +17,13 @@ export const loadAlbum = (albumId) => (dispatch) => {
 
   fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}?_expand=user`)
     .then((response) => response.json())
-    .then((data) => dispatch(received(data)));
+    .then((data) => {
+      const { title: albumTitle, user } = data;
+      const { name: userName, email: userEmail } = user;
+      const usefulData = { albumTitle, userName, userEmail };
+
+      dispatch(received(usefulData));
+    });
 };
 
 const initialState = {
